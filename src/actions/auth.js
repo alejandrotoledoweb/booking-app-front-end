@@ -1,10 +1,17 @@
-import Axios from 'axios';
+import Axios from './import';
 import {
-  LOGIN_SUCCESS, LOGIN_REQUEST, LOGIN_FAILURE, LOGOUT,
+  LOGIN_SUCCESS,
+  LOGIN_REQUEST,
+  LOGIN_FAILURE,
+  LOGOUT,
+  LOGOUT_REQUEST,
+  LOGOUT_FAILURE,
+  API_URL,
+  TOGGLE_FORM,
 } from './types';
 
-export const userLoginRequest = () => ({
-  type: LOGIN_REQUEST,
+export const requestPending = (actionType) => ({
+  type: actionType,
 });
 
 export const userLoginSuccess = (user) => ({
@@ -12,8 +19,8 @@ export const userLoginSuccess = (user) => ({
   payload: user,
 });
 
-export const userLoginFailure = (error) => ({
-  type: LOGIN_FAILURE,
+export const requestFailure = (actionType, error) => ({
+  type: actionType,
   payload: error,
 });
 
@@ -21,11 +28,14 @@ export const userLogout = () => ({
   type: LOGOUT,
 });
 
-export const login = (username, password) => (dispatch) => {
+export const toggleForm = () => ({
+  type: TOGGLE_FORM,
+});
+
+export const login = (loginDetails) => (dispatch) => {
   try {
-    const user = { username, password };
-    dispatch(userLoginRequest());
-    Axios.post('https://bookig-app--api.herokuapp.com/auth/login', user)
+    dispatch(requestPending(LOGIN_REQUEST));
+    Axios.post(`${API_URL}/login`, loginDetails)
       .then((response) => {
         if (response.data.logged_in) {
           localStorage.setItem('token', response.data.token);
@@ -33,40 +43,45 @@ export const login = (username, password) => (dispatch) => {
         }
       })
       .catch((error) => {
-        dispatch(userLoginFailure(error.message));
+        dispatch(
+          requestFailure(
+            LOGIN_FAILURE,
+            `${error.message}: Invalid Username or password`,
+          ),
+        );
       });
   } catch (error) {
-    dispatch(userLoginFailure(error.message));
+    dispatch(requestFailure(LOGIN_FAILURE, `${error.message}: Unexpected Error. Please try again.`));
   }
 };
 
 export const signup = (userParams) => (dispatch) => {
   try {
-    dispatch(userLoginRequest());
-    Axios.post('https://bookig-app--api.herokuapp.com/signup', userParams)
+    dispatch(requestPending(LOGIN_REQUEST));
+    Axios.post(`${API_URL}/users`, userParams)
       .then((response) => {
         if (response.data.created) {
           localStorage.setItem('token', response.data.token);
           dispatch(userLoginSuccess(response.data.user));
         }
         if (!response.data.created) {
-          dispatch(userLoginFailure(response.data.error_messages));
+          dispatch(requestFailure(LOGIN_FAILURE, response.data.error_messages));
         }
       })
       .catch((error) => {
-        dispatch(userLoginFailure(error.message));
+        dispatch(requestFailure(LOGIN_FAILURE, error.message));
       });
   } catch (error) {
-    dispatch(userLoginFailure(error.message));
+    dispatch(requestFailure(LOGIN_FAILURE, error.message));
   }
 };
 
 export const checkLoginStatus = () => (dispatch) => {
   try {
-    dispatch(userLoginRequest());
+    dispatch(requestPending(LOGIN_REQUEST));
     const token = localStorage.getItem('token');
     if (token) {
-      Axios.get('https://bookig-app--api.herokuapp.com/auth/login', {
+      Axios.get(`${API_URL}/auto_login`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -76,34 +91,36 @@ export const checkLoginStatus = () => (dispatch) => {
             dispatch(userLoginSuccess(response.data.user));
           }
           if (!response.data.logged_in) {
-            dispatch(userLoginFailure(response.data.message));
+            dispatch(requestFailure(LOGIN_FAILURE, response.data.message));
           }
         })
         .catch((error) => {
-          dispatch(userLoginFailure(error.message));
+          dispatch(requestFailure(LOGIN_FAILURE, error.message));
         });
     } else {
-      dispatch(userLoginFailure('You are not authorized. Please login.'));
+      dispatch(
+        requestFailure(LOGIN_FAILURE, 'You are not authorized. Please login.'),
+      );
     }
   } catch (error) {
-    dispatch(userLoginFailure(error.message));
+    dispatch(requestFailure(LOGIN_FAILURE, error.message));
   }
 };
 
 export const logout = () => (dispatch) => {
   try {
-    dispatch(userLoginRequest());
+    dispatch(requestPending(LOGOUT_REQUEST));
     localStorage.removeItem('token');
-    Axios.delete('https://bookig-app--api.herokuapp.com/auth/login')
+    Axios.delete(`${API_URL}/logout`)
       .then((response) => {
         if (response.data.logged_out) {
           dispatch(userLogout());
         }
       })
       .catch((error) => {
-        dispatch(userLoginFailure(error.message));
+        dispatch(requestFailure(LOGOUT_FAILURE, error.message));
       });
   } catch (error) {
-    dispatch(userLoginFailure(error.message));
+    dispatch(requestFailure(LOGOUT_FAILURE, error.message));
   }
 };
