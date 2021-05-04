@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Navbar from './components/Navbar';
 import Dashboard from './containers/Dashboard';
 import Home from './containers/Home';
+import { checkLoginStatus } from './actions/auth';
 
-const App = () => (
-  <section>
-    <>
-      <main>
-        Hello world
-      </main>
-    </>
+const App = ({ checkLoginStatus }) => {
+  useEffect(() => {
+    checkLoginStatus();
+  }, [checkLoginStatus]);
+  return (
     <BrowserRouter>
       <div className="App">
         <header>
@@ -18,13 +19,26 @@ const App = () => (
         </header>
         <main>
           <Switch>
+            effect;
             <Route exact path="/" component={Home} />
             <Route path="/user/:user_id/dashboard" component={Dashboard} />
           </Switch>
         </main>
       </div>
     </BrowserRouter>
-  </section>
-);
+  );
+};
 
-export default App;
+App.defaultProps = {
+  checkLoginStatus: PropTypes.func,
+};
+
+App.propTypes = {
+  checkLoginStatus: PropTypes.func,
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  checkLoginStatus: () => dispatch(checkLoginStatus()),
+});
+
+export default connect(null, mapDispatchToProps)(App);
