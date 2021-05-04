@@ -1,4 +1,4 @@
-export const API_URL = 'https://booking-app--api.herokuapp.com/api/v1/';
+export const API_URL = 'https://booking-app--api.herokuapp.com/api/v1';
 
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
