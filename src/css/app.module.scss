@@ -1,0 +1,38 @@
+$background-color: #ff8474;
+$g-color: #ffc996;
+
+.app {
+  text-align: center;
+  transition: margin-left 0.5s;
+}
+
+.mainContent {
+  background-color: $g-color;
+  border-radius: 10px;
+
+  .mainTitle {
+    font-weight: 900;
+    font-size: 400%;
+  }
+
+  .details {
+    font-size: 20px;
+  }
+
+  .authForm {
+    border: 1px solid #9f5f80;
+    border-radius: 5px;
+    margin: 0 auto;
+    width: 50%;
+    padding: 20px 10px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .mainContent {
+    .authForm {
+      width: 90%;
+      padding: 20px 10px;
+    }
+  }
+}
