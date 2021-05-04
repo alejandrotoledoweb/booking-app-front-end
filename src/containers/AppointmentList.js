@@ -53,11 +53,11 @@ AppointmentList.propTypes = {
   fetchAppointments: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   appointments: state.appointments.appointments,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   fetchAppointments: () => dispatch(fetchAppointments()),
 });
 

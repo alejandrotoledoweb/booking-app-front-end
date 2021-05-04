@@ -1,13 +1,80 @@
 import React from 'react';
-import Signup from '../components/auth/Signup';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import styles from '../css/home.module.scss';
+import { logout } from '../actions/auth';
 
-function Home() {
+function Home({ userName, logout }) {
   return (
-    <section>
-      <h1>Welcome Home</h1>
-      <Signup />
+    <section className={styles.home}>
+      <h3 className="d-flex justify-content-between">
+        Welcome,
+        {' '}
+        {userName}
+        <small className="text-muted push-right">
+          <button
+            type="button"
+            className="btn btn-danger"
+            onClick={() => logout()}
+          >
+            Logout
+          </button>
+        </small>
+      </h3>
+      <p className="font-weight-bolder font-italic">
+        To get started, you can perform the following activities from the
+        sidenav:
+      </p>
+      <ul className="list-unstyled">
+        <li className="">
+          <span role="img" aria-label="emoji">
+            &#77acf1;
+          </span>
+          {' '}
+          Check for the list of available restaurants
+        </li>
+        <li>
+          <span role="img" aria-label="emoji">
+            &#77acf1;
+          </span>
+          {' '}
+          View details and location of each Restaurant
+        </li>
+        <li>
+          <span role="img" aria-label="emoji">
+            &#77acf1;
+          </span>
+          {' '}
+          Book an appointment with a Restaurant
+        </li>
+        <li>
+          <span role="img" aria-label="emoji">
+            &##77acf1;
+          </span>
+          {' '}
+          Check all appointments
+        </li>
+      </ul>
+      <p className="font-italic font-weight-bold text-right">...all the best!</p>
     </section>
   );
 }
 
-export default Home;
+Home.defaultProps = {
+  userName: undefined,
+};
+
+Home.propTypes = {
+  userName: PropTypes.string,
+  logout: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  userName: state.auth.user.name,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  logout: () => dispatch(logout()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
