@@ -26,7 +26,7 @@ More information about the Back-End part of the project in this [link](https://g
 
 ## Live Demo - Try the game here
 
-[Live Demo Link](https://60785834eec2e8508716062f--react-redux-catalogue-cats.netlify.app/)
+[Live Demo Link](https://6092d425325b1d28e6ecc05d--booking-app-fron-end.netlify.app)
 
 ## Getting Started
 
