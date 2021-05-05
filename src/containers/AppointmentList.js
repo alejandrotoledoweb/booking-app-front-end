@@ -37,7 +37,7 @@ function AppointmentList({ fetchAppointments, appointments }) {
             <th scope="col">#</th>
             <th scope="col">Appointment Date</th>
             <th scope="col">Expected Duration</th>
-            <th scope="col">Engineer (Location)</th>
+            <th scope="col">Restaurant Name (Location)</th>
             <th scope="col">Date Submitted</th>
             <th scope="col">Status</th>
           </tr>

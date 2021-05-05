@@ -1,6 +1,6 @@
-$font-color: #fff;
-$bg-color: #ffb400;
-$g-color: #98be11;
+$font-color: #3d84b8;
+$bg-color: #3f3697;
+$g-color: #344fa1;
 
 .header {
   padding: 20px;
@@ -66,8 +66,9 @@ $g-color: #98be11;
       text-align: left;
       padding: 10px 15px;
       border: unset;
+      border-radius: 110px;
       background-color: $g-color;
-      color: $font-color;
+      color: white;
       font-weight: bolder;
       margin: 10px 0;
       text-decoration: none;

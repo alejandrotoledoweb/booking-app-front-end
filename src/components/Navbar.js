@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faSearchPlus } from '@fortawesome/free-solid-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { logout, toggleForm } from '../actions/auth';
 import { NOT_LOGGED_IN } from '../actions/types';
 import styles from '../css/navbar.module.scss';
@@ -32,13 +32,13 @@ const Navbar = ({
 
   const loggedInItems = () => (
     <div className={styles.items}>
-      <p className="bold text-success">
+      <p className="bold text-white">
         <span>Current User:</span>
         {' '}
         {username}
       </p>
       <ul>
-        <li>
+        <li className="text-white">
           <Link to="/" className={styles.item}>
             Home
           </Link>
@@ -50,7 +50,7 @@ const Navbar = ({
         </li>
         <li>
           <Link to="/engineers" className={styles.item}>
-            Engineers
+            All Restaurants
           </Link>
         </li>
         <li>
@@ -84,7 +84,6 @@ const Navbar = ({
         >
           &times;
         </button>
-        <h2 className="text-center">VTH</h2>
         <span>
           {loggedIn === NOT_LOGGED_IN ? notLoggedInItems() : loggedInItems()}
         </span>
@@ -97,9 +96,7 @@ const Navbar = ({
         >
           <FontAwesomeIcon icon={faBars} />
         </button>
-        <button type="button" className={styles.searchBtn}>
-          <FontAwesomeIcon icon={faSearchPlus} />
-        </button>
+        <h3>Book and Appointment for a Restaurant</h3>
       </div>
     </nav>
   );

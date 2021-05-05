@@ -30,7 +30,7 @@ const Engineer = ({
           {engineer.name}
         </h5>
         <p>
-          Stack:
+          Food type:
           {' '}
           {engineer.description}
         </p>

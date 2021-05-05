@@ -50,7 +50,7 @@ const EngineerList = ({ loading, engineers, fetchAllEngineers }) => {
       ))}
     </Slider>
   ) : (
-    <p>There are currently no engineer available. please check later. </p>
+    <p>There are currently no restaurants available. please check later. </p>
   );
 
   if (loading) {
@@ -60,9 +60,9 @@ const EngineerList = ({ loading, engineers, fetchAllEngineers }) => {
   return (
     <div className={home.home}>
       <h4 className="font-weight-bold text-center mb-5 text-uppercase">
-        All Engineers List
+        All Restaurants List
         <small className="text-muted push-right text-lowercase d-block">
-          Please select an engineer to see details
+          click the button below each restaurant to see more details
         </small>
       </h4>
       {allEngineers}

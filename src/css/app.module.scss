@@ -1,5 +1,5 @@
-$background-color: #ffb400;
-$g-color: #98be11;
+$background-color: #3d84b8;
+$g-color: #a7d0cd;
 
 .app {
   text-align: center;
@@ -8,7 +8,6 @@ $g-color: #98be11;
 
 .mainContent {
   background-color: $g-color;
-  border-radius: 10px;
 
   .mainTitle {
     font-weight: 900;
@@ -21,10 +20,10 @@ $g-color: #98be11;
 
   .authForm {
     border: 1px solid #fff;
-    border-radius: 5px;
+    border-radius: 10px;
     margin: 0 auto;
     width: 50%;
-    padding: 20px 10px;
+    padding: 5px 5px;
   }
 }
 
@@ -32,7 +31,7 @@ $g-color: #98be11;
   .mainContent {
     .authForm {
       width: 90%;
-      padding: 20px 10px;
+      padding: 5px 5px;
     }
   }
 }

@@ -21,41 +21,27 @@ function Home({ userName, logout }) {
           </button>
         </small>
       </h3>
-      <p className="font-weight-bolder font-italic">
-        To get started, you can perform the following activities from the
-        sidenav:
+      <p className="font-weight-bolder">
+        In this app you can do the following tasks:
       </p>
       <ul className="list-unstyled">
         <li className="">
-          <span role="img" aria-label="emoji">
-            &#128221;
-          </span>
           {' '}
-          Check for the list of available engineers
+          - Check for the list of available restaurants
         </li>
         <li>
-          <span role="img" aria-label="emoji">
-            &#128221;
-          </span>
           {' '}
-          View details of each engineer
+          - View details of each restaurant
         </li>
         <li>
-          <span role="img" aria-label="emoji">
-            &#128221;
-          </span>
           {' '}
-          Book an appointment with a TSE
+          - Book an appointment with a Restaurant
         </li>
         <li>
-          <span role="img" aria-label="emoji">
-            &#128221;
-          </span>
           {' '}
-          Check all appointments
+          - Check all you booked appointments
         </li>
       </ul>
-      <p className="font-italic font-weight-bold text-right">...all the best!</p>
     </section>
   );
 }
