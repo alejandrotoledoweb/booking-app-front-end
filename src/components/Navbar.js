@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faSearchPlus } from '@fortawesome/free-solid-svg-icons';
 import { logout, toggleForm } from '../actions/auth';
 import { NOT_LOGGED_IN } from '../actions/types';
 import styles from '../css/navbar.module.scss';
@@ -84,6 +84,7 @@ const Navbar = ({
         >
           &times;
         </button>
+        <h2 className="text-center">Book APP</h2>
         <span>
           {loggedIn === NOT_LOGGED_IN ? notLoggedInItems() : loggedInItems()}
         </span>
@@ -96,7 +97,9 @@ const Navbar = ({
         >
           <FontAwesomeIcon icon={faBars} />
         </button>
-        <h3>Book and Appointment for a Restaurant</h3>
+        <button type="button" className={styles.searchBtn}>
+          <FontAwesomeIcon icon={faSearchPlus} />
+        </button>
       </div>
     </nav>
   );

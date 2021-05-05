@@ -21,11 +21,11 @@ const Engineer = ({
       <div className="w-md-75">
         <img
           src={engineer.avatar_link}
-          alt="Engineer Img"
+          alt="Restaurant Img"
           className="img-fluid rounded"
         />
       </div>
-      <aside className="w-md-25 text-center mt-3 mt-md-0 text-md-right">
+      <aside className="w-md-50 text-center mt-3 mt-md-0 text-md-right">
         <h5 className="font-weight-bold mb-3 text-uppercase">
           {engineer.name}
         </h5>

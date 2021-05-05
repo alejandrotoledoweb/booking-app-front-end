@@ -42,15 +42,7 @@ const App = ({
 
   const details = () => (
     <div>
-      <h1 className={`${styles.mainTitle} mb-2`}>Virtual Technical Help</h1>
-      <p
-        className={`${styles.details} font-weight-bolder mx-5 my-4`}
-      >
-        This app is built to connect micronauts (microverse students) who may
-        need technical help to Technical Support Engineers, using microverse
-        (an online training school for remote software developers) as a case
-        study.
-      </p>
+      <h1 className={`${styles.mainTitle} mb-2 text-white`}>Book and Appointment for a Restaurant</h1>
     </div>
   );
 

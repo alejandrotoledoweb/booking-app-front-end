@@ -1,5 +1,5 @@
-$background-color: #3d84b8;
-$g-color: #a7d0cd;
+$background-color: #91c788;
+$g-color: #91c788;
 
 .app {
   text-align: center;
@@ -7,6 +7,11 @@ $g-color: #a7d0cd;
 }
 
 .mainContent {
+  background-image: url('../background-image.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  opacity: 0.7;
   background-color: $g-color;
 
   .mainTitle {
@@ -19,7 +24,7 @@ $g-color: #a7d0cd;
   }
 
   .authForm {
-    border: 1px solid #fff;
+    border: 1px solid black;
     border-radius: 10px;
     margin: 0 auto;
     width: 50%;
