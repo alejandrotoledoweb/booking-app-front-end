@@ -28,28 +28,28 @@ function Home({ userName, logout }) {
       <ul className="list-unstyled">
         <li className="">
           <span role="img" aria-label="emoji">
-            &#77acf1;
+            &#128221;
           </span>
           {' '}
-          Check for the list of available restaurants
+          Check for the list of available engineers
         </li>
         <li>
           <span role="img" aria-label="emoji">
-            &#77acf1;
+            &#128221;
           </span>
           {' '}
-          View details and location of each Restaurant
+          View details of each engineer
         </li>
         <li>
           <span role="img" aria-label="emoji">
-            &#77acf1;
+            &#128221;
           </span>
           {' '}
-          Book an appointment with a Restaurant
+          Book an appointment with a TSE
         </li>
         <li>
           <span role="img" aria-label="emoji">
-            &##77acf1;
+            &#128221;
           </span>
           {' '}
           Check all appointments

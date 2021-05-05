@@ -49,8 +49,8 @@ const Navbar = ({
           </Link>
         </li>
         <li>
-          <Link to="/restaurants" className={styles.item}>
-            Restaurants
+          <Link to="/engineers" className={styles.item}>
+            Engineers
           </Link>
         </li>
         <li>

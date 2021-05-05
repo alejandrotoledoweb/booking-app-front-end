@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import fetchEngineers from '../actions/restaurants';
+import fetchEngineers from '../actions/engineers';
 import home from '../css/home.module.scss';
 import Spinner from '../components/Spinner';
 
@@ -50,7 +50,7 @@ const EngineerList = ({ loading, engineers, fetchAllEngineers }) => {
       ))}
     </Slider>
   ) : (
-    <p>There are currently no restaurants available. please check later. </p>
+    <p>There are currently no engineer available. please check later. </p>
   );
 
   if (loading) {

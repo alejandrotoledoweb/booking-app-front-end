@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import fetchCurrentEngineer from '../actions/restaurant';
+import fetchCurrentEngineer from '../actions/engineer';
 import Appointment from './Appointment';
 import home from '../css/home.module.scss';
 import Spinner from './Spinner';

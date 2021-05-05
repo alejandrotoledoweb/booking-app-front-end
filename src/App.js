@@ -9,8 +9,8 @@ import { LOGGED_IN } from './actions/types';
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
 import AppointmentList from './containers/AppointmentList';
-import RestaurantList from './containers/RestaurantList';
-import Restaurant from './components/Restaurant';
+import EngineerList from './containers/EngineerList';
+import Engineer from './components/Engineer';
 import styles from './css/app.module.scss';
 
 const App = ({
@@ -35,8 +35,8 @@ const App = ({
         path="/user/:user_id/appointments"
         component={AppointmentList}
       />
-      <Route exact path="/restaurants" component={RestaurantList} />
-      <Route exact path="/restaurants/:id" component={Restaurant} />
+      <Route exact path="/engineers" component={EngineerList} />
+      <Route exact path="/engineers/:id" component={Engineer} />
     </Switch>
   );
 

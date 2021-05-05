@@ -1,4 +1,4 @@
-import Axios from './import';
+import Axios from 'axios';
 import { requestFailure, requestPending } from './auth';
 import {
   ADD_APPOINTMENT_FAILURE,
