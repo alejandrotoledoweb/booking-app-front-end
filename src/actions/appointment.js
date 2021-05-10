@@ -4,7 +4,7 @@ import {
   ADD_APPOINTMENT_FAILURE,
   ADD_APPOINTMENT_SUCCESS,
   APPOINTMENT_ACTION_REQUEST,
-  FETCH_APPOINTMENTS_FAILURE,
+  SET_ERROR,
   FETCH_APPOINTMENTS_SUCCESS,
   API_URL,
 } from './types';
@@ -56,9 +56,9 @@ export const fetchAppointments = () => (dispatch) => {
         }
       })
       .catch((error) => {
-        dispatch(requestFailure(FETCH_APPOINTMENTS_FAILURE, error.message));
+        dispatch(requestFailure(SET_ERROR, error.message));
       });
   } catch (error) {
-    dispatch(requestFailure(FETCH_APPOINTMENTS_FAILURE, error.message));
+    dispatch(requestFailure(SET_ERROR, error.message));
   }
 };

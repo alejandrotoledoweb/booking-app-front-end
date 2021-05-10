@@ -45,7 +45,7 @@ export const login = (loginDetails) => (dispatch) => {
         dispatch(
           requestFailure(
             SET_ERROR,
-            `${error.message}: Invalid Username or password`,
+            `${error.message}: Error 401. Invalid Username or password`,
           ),
         );
       });

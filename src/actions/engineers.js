@@ -2,7 +2,7 @@ import Axios from 'axios';
 import { requestFailure, requestPending } from './auth';
 import {
   API_URL,
-  FETCH_ENGINEERS_FAILURE,
+  SET_ERROR,
   FETCH_ENGINEERS_PENDING,
   FETCH_ENGINEERS_SUCCESS,
 } from './types';
@@ -22,10 +22,10 @@ const fetchEngineers = () => (dispatch) => {
         }
       })
       .catch((error) => {
-        dispatch(requestFailure(FETCH_ENGINEERS_FAILURE, error.message));
+        dispatch(requestFailure(SET_ERROR, error.message));
       });
   } catch (error) {
-    dispatch(requestFailure(FETCH_ENGINEERS_FAILURE, error.message));
+    dispatch(requestFailure(SET_ERROR, error.message));
   }
 };
 

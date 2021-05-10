@@ -1,6 +1,6 @@
 import {
   engineersInitialState,
-  FETCH_ENGINEERS_FAILURE,
+  SET_ERROR,
   FETCH_ENGINEERS_PENDING,
   FETCH_ENGINEERS_SUCCESS,
 } from '../actions/types';
@@ -19,7 +19,7 @@ const engineersReducer = (state = engineersInitialState, action) => {
         engineers: action.payload,
         error: '',
       };
-    case FETCH_ENGINEERS_FAILURE:
+    case SET_ERROR:
       return {
         ...state,
         loading: false,

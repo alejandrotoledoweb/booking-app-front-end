@@ -2,8 +2,8 @@ import Axios from 'axios';
 import { requestFailure, requestPending } from './auth';
 import {
   FETCH_CURRENT_ENGINEER_REQUEST,
-  FETCH_CURRENT_ENGINEER_FAILURE,
   FETCH_CURRENT_ENGINEER_SUCCESS,
+  SET_ERROR,
   API_URL,
 } from './types';
 
@@ -22,10 +22,10 @@ const fetchCurrentEngineer = (id) => (dispatch) => {
         }
       })
       .catch((error) => {
-        dispatch(requestFailure(FETCH_CURRENT_ENGINEER_FAILURE, error.message));
+        dispatch(requestFailure(SET_ERROR, error.message));
       });
   } catch (error) {
-    dispatch(requestFailure(FETCH_CURRENT_ENGINEER_FAILURE, error.message));
+    dispatch(requestFailure(SET_ERROR, error.message));
   }
 };
 

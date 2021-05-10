@@ -3,7 +3,7 @@ import {
   ADD_APPOINTMENT_SUCCESS,
   appointmentsInitialState,
   APPOINTMENT_ACTION_REQUEST,
-  FETCH_APPOINTMENTS_FAILURE,
+  SET_ERROR,
   FETCH_APPOINTMENTS_SUCCESS,
 } from '../actions/types';
 
@@ -35,7 +35,7 @@ const appointmentsReducer = (state = appointmentsInitialState, action) => {
         error: '',
         createStatus: false,
       };
-    case FETCH_APPOINTMENTS_FAILURE:
+    case SET_ERROR:
       return {
         ...state,
         loading: false,
