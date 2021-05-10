@@ -1,11 +1,11 @@
 import {
-  engineersInitialState,
+  engineerInitialState,
   FETCH_CURRENT_ENGINEER_REQUEST,
   FETCH_CURRENT_ENGINEER_SUCCESS,
   SET_ERROR,
 } from '../actions/types';
 
-const engineerReducer = (state = engineersInitialState, action) => {
+const engineerReducer = (state = engineerInitialState, action) => {
   switch (action.type) {
     case FETCH_CURRENT_ENGINEER_REQUEST:
       return {
