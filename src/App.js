@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Navbar from './components/Navbar';
 import Home from './containers/Home';
-import { checkLoginStatus, logout, toggleForm } from './actions/auth';
-import { LOGGED_IN } from './actions/types';
+import { logout, toggleForm } from './actions/auth';
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
 import AppointmentList from './containers/AppointmentList';
@@ -13,20 +12,7 @@ import EngineerList from './containers/EngineerList';
 import Engineer from './components/Engineer';
 import styles from './css/app.module.scss';
 
-const App = ({
-  checkLoginStatus,
-  status,
-  logoutUser,
-  toggleForm,
-  formFlag,
-}) => {
-  useEffect(() => {
-    checkLoginStatus();
-    setTimeout(() => {
-      logoutUser();
-    }, 1200000); // logout the user after 30minutes of inactivity
-  }, [checkLoginStatus, logoutUser]);
-
+const App = ({ formFlag }) => {
   const loggedInScreen = () => (
     <Switch>
       <Route exact path="/" component={Home} />
@@ -39,10 +25,9 @@ const App = ({
       <Route exact path="/restaurants/:id" component={Engineer} />
     </Switch>
   );
-
   const details = () => (
     <div>
-      <h1 className={`${styles.mainTitle} mb-2 text-white`}>Book an Appointment for a Restaurant</h1>
+      <h1 className={`${styles.mainTitle} mb-2 text-white`}>Book and Appointment for a Restaurant</h1>
     </div>
   );
 
@@ -82,7 +67,6 @@ const App = ({
       </article>
     );
   };
-
   return (
     <BrowserRouter>
       <main className={`${styles.app}`} id="main">
@@ -92,7 +76,7 @@ const App = ({
         <div
           className={`${styles.mainContent} mx-5 px-3 px-sm-1 py-5  text-center text-white`}
         >
-          {status === LOGGED_IN ? loggedInScreen() : (
+          {localStorage.token ? loggedInScreen() : (
             <div>
               {details()}
               {authForms()}
@@ -105,10 +89,6 @@ const App = ({
 };
 
 App.propTypes = {
-  checkLoginStatus: PropTypes.func.isRequired,
-  status: PropTypes.string.isRequired,
-  logoutUser: PropTypes.func.isRequired,
-  toggleForm: PropTypes.func.isRequired,
   formFlag: PropTypes.bool.isRequired,
 };
 
@@ -118,7 +98,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  checkLoginStatus: () => dispatch(checkLoginStatus()),
   logoutUser: () => dispatch(logout()),
   toggleForm: () => dispatch(toggleForm()),
 });
