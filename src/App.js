@@ -35,8 +35,8 @@ const App = ({
         path="/user/:user_id/appointments"
         component={AppointmentList}
       />
-      <Route exact path="/engineers" component={EngineerList} />
-      <Route exact path="/engineers/:id" component={Engineer} />
+      <Route exact path="/restaurants" component={EngineerList} />
+      <Route exact path="/restaurants/:id" component={Engineer} />
     </Switch>
   );
 

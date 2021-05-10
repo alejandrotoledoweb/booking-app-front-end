@@ -44,22 +44,22 @@ const EngineerList = ({ loading, engineers, fetchAllEngineers }) => {
   };
   const allEngineers = engineers && engineers.length > 0 ? (
     <Slider {...settings}>
-      {engineers.map((engineer) => (
-        <article className="text-center px-3 my-3 card d-flex card-style" key={engineer.id}>
+      {engineers.map((restaurant) => (
+        <article className="text-center px-3 my-3 card d-flex card-style" key={restaurant.id}>
           <img
-            src={engineer.avatar_link}
+            src={restaurant.avatar_link}
             className="img-fluid main-img text-center justify-content-center mx-auto"
-            alt={engineer.name}
+            alt={restaurant.name}
           />
           <div className="card-body">
             <h5 className="card-title text-uppercase mt-2">
-              {engineer.name}
+              {restaurant.name}
             </h5>
-            <p className="card-text">{engineer.description}</p>
+            <p className="card-text">{restaurant.description}</p>
           </div>
           <div className="card-footer text-muted">
             <Link
-              to={`/engineers/${engineer.id}`}
+              to={`/restaurants/${restaurant.id}`}
               className="btn btn-success"
             >
               View Details
