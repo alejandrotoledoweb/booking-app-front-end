@@ -5,7 +5,6 @@ import {
   SET_ERROR,
   LOGOUT,
   LOGOUT_REQUEST,
-  LOGOUT_FAILURE,
   API_URL,
   TOGGLE_FORM,
 } from './types';
@@ -118,9 +117,9 @@ export const logout = (id) => (dispatch) => {
         }
       })
       .catch((error) => {
-        dispatch(requestFailure(LOGOUT_FAILURE, error.message));
+        dispatch(requestFailure(SET_ERROR, error.message));
       });
   } catch (error) {
-    dispatch(requestFailure(LOGOUT_FAILURE, error.message));
+    dispatch(requestFailure(SET_ERROR, error.message));
   }
 };
