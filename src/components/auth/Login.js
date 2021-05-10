@@ -6,7 +6,7 @@ import styles from '../../css/auth.module.scss';
 import Spinner from '../Spinner';
 
 const Login = ({ login, loading, error }) => {
-  const intialValues = { username: '', password: '' };
+  const intialValues = { email: '', password: '' };
   const [loginDetails, setLoginDetails] = useState(intialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -22,7 +22,7 @@ const Login = ({ login, loading, error }) => {
 
   const validate = (values) => {
     const errors = {};
-    if (!values.username) {
+    if (!values.email) {
       errors.email = 'Hint: Username cannot be blank';
     }
     if (!values.password) {
@@ -52,13 +52,13 @@ const Login = ({ login, loading, error }) => {
       <span className="d-inline-block mb-2 text-danger">{error}</span>
       <form onSubmit={handleSubmit} noValidate>
         <div className="form-group">
-          <label htmlFor="username">
+          <label htmlFor="email">
             <input
-              type="username"
-              name="username"
-              id="username"
-              placeholder="Enter username here"
-              value={loginDetails.username}
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Enter email here"
+              value={loginDetails.email}
               onChange={handleChange}
               className={`${formErrors.email && 'is-invalid'} form-control`}
             />
@@ -109,7 +109,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  login: (username, password) => dispatch(login(username, password)),
+  login: (email, password) => dispatch(login(email, password)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

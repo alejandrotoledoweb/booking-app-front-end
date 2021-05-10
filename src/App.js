@@ -42,7 +42,7 @@ const App = ({
 
   const details = () => (
     <div>
-      <h1 className={`${styles.mainTitle} mb-2 text-white`}>Book and Appointment for a Restaurant</h1>
+      <h1 className={`${styles.mainTitle} mb-2 text-white`}>Book an Appointment for a Restaurant</h1>
     </div>
   );
 

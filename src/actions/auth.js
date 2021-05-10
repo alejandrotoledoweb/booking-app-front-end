@@ -1,4 +1,4 @@
-import Axios from './import';
+import Axios from 'axios';
 import {
   LOGIN_SUCCESS,
   LOGIN_REQUEST,
@@ -35,7 +35,7 @@ export const toggleForm = () => ({
 export const login = (loginDetails) => (dispatch) => {
   try {
     dispatch(requestPending(LOGIN_REQUEST));
-    Axios.post(`${API_URL}/login`, loginDetails)
+    Axios.post(`${API_URL}/authentication`, loginDetails)
       .then((response) => {
         if (response.data.logged_in) {
           localStorage.setItem('token', response.data.token);
@@ -46,7 +46,7 @@ export const login = (loginDetails) => (dispatch) => {
         dispatch(
           requestFailure(
             LOGIN_FAILURE,
-            `${error.message}: Invalid Username or password`,
+            `${error.message}: Invalid Email or password`,
           ),
         );
       });
