@@ -1,8 +1,9 @@
 export const API_URL = 'https://booking-app--api.herokuapp.com/api/v1';
 
+export const SET_ERROR = 'SET_ERROR';
+
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 export const TOGGLE_FORM = 'TOGGLE_FORM';
 
 export const NOT_LOGGED_IN = 'NOT_LOGGED_IN';

@@ -1,6 +1,6 @@
 import {
   LOGIN_SUCCESS,
-  LOGIN_FAILURE,
+  SET_ERROR,
   LOGIN_REQUEST,
   LOGGED_IN,
   NOT_LOGGED_IN,
@@ -30,7 +30,7 @@ const authReducer = (state = authInitialState, action) => {
         user: action.payload,
         error: '',
       };
-    case LOGIN_FAILURE:
+    case SET_ERROR:
       return {
         ...state,
         loading: false,

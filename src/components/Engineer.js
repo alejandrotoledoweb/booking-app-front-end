@@ -17,12 +17,12 @@ const Engineer = ({
   );
 
   const thisEngineer = Object.keys(engineer).length ? (
-    <section className="d-md-flex">
-      <div className="w-md-75">
+    <section className="d-md-flex text-center flex-wrap">
+      <div className="w-md-50 w-sm-50 justify-content-center mx-auto">
         <img
           src={engineer.avatar_link}
           alt="Restaurant Img"
-          className="img-fluid rounded"
+          className="img-fluid rounded w-100"
         />
       </div>
       <aside className="w-md-50 text-center mt-3 mt-md-0 text-md-right">
@@ -57,7 +57,7 @@ const Engineer = ({
   return (
     <section className={home.home}>
       <h4 className="font-weight-bold mb-5 text-uppercase">
-        Engineer Details
+        Restaurant Details
       </h4>
       {thisEngineer}
     </section>

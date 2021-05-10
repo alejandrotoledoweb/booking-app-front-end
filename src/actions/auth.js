@@ -2,7 +2,7 @@ import Axios from 'axios';
 import {
   LOGIN_SUCCESS,
   LOGIN_REQUEST,
-  LOGIN_FAILURE,
+  SET_ERROR,
   LOGOUT,
   LOGOUT_REQUEST,
   LOGOUT_FAILURE,
@@ -45,13 +45,13 @@ export const login = (loginDetails) => (dispatch) => {
       .catch((error) => {
         dispatch(
           requestFailure(
-            LOGIN_FAILURE,
-            `${error.message}: Invalid username or password`,
+            SET_ERROR,
+            `${error.message}: Invalid Username or password`,
           ),
         );
       });
   } catch (error) {
-    dispatch(requestFailure(LOGIN_FAILURE, `${error.message}: Unexpected Error. Please try again.`));
+    dispatch(requestFailure(SET_ERROR, `${error.message}: Unexpected Error. Please try again.`));
   }
 };
 
@@ -65,14 +65,14 @@ export const signup = (userParams) => (dispatch) => {
           dispatch(userLoginSuccess(response.data.user));
         }
         if (!response.data.created) {
-          dispatch(requestFailure(LOGIN_FAILURE, response.data.error_messages));
+          dispatch(requestFailure(SET_ERROR, response.data.error_messages));
         }
       })
       .catch((error) => {
-        dispatch(requestFailure(LOGIN_FAILURE, error.message));
+        dispatch(requestFailure(SET_ERROR, error.message));
       });
   } catch (error) {
-    dispatch(requestFailure(LOGIN_FAILURE, error.message));
+    dispatch(requestFailure(SET_ERROR, error.message));
   }
 };
 
@@ -91,27 +91,27 @@ export const checkLoginStatus = () => (dispatch) => {
             dispatch(userLoginSuccess(response.data.user));
           }
           if (!response.data.logged_in) {
-            dispatch(requestFailure(LOGIN_FAILURE, response.data.message));
+            dispatch(requestFailure(SET_ERROR, response.data.message));
           }
         })
         .catch((error) => {
-          dispatch(requestFailure(LOGIN_FAILURE, error.message));
+          dispatch(requestFailure(SET_ERROR, error.message));
         });
     } else {
       dispatch(
-        requestFailure(LOGIN_FAILURE, 'You are not authorized. Please login.'),
+        requestFailure(SET_ERROR, 'You are not authorized. Please login.'),
       );
     }
   } catch (error) {
-    dispatch(requestFailure(LOGIN_FAILURE, error.message));
+    dispatch(requestFailure(SET_ERROR, error.message));
   }
 };
 
-export const logout = () => (dispatch) => {
+export const logout = (id) => (dispatch) => {
   try {
     dispatch(requestPending(LOGOUT_REQUEST));
     localStorage.removeItem('token');
-    Axios.delete(`${API_URL}/logout`)
+    Axios.delete(`${API_URL}/authentication/${id}`)
       .then((response) => {
         if (response.data.logged_out) {
           dispatch(userLogout());
