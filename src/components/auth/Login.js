@@ -6,7 +6,7 @@ import styles from '../../css/auth.module.scss';
 import Spinner from '../Spinner';
 
 const Login = ({ login, loading, error }) => {
-  const intialValues = { email: '', password: '' };
+  const intialValues = { username: '', password: '' };
   const [loginDetails, setLoginDetails] = useState(intialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -22,8 +22,8 @@ const Login = ({ login, loading, error }) => {
 
   const validate = (values) => {
     const errors = {};
-    if (!values.email) {
-      errors.email = 'Hint: Username cannot be blank';
+    if (!values.username) {
+      errors.username = 'Hint: Username cannot be blank';
     }
     if (!values.password) {
       errors.password = 'Hint: Password cannot be blank';
@@ -54,10 +54,10 @@ const Login = ({ login, loading, error }) => {
         <div className="form-group">
           <label htmlFor="email">
             <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Enter email here"
+              type="username"
+              name="username"
+              id="username"
+              placeholder="Enter username here"
               value={loginDetails.email}
               onChange={handleChange}
               className={`${formErrors.email && 'is-invalid'} form-control`}
@@ -65,7 +65,7 @@ const Login = ({ login, loading, error }) => {
           </label>
           {formErrors.email && (
             <span className={`${styles.error} d-block`}>
-              {formErrors.email}
+              {formErrors.username}
             </span>
           )}
         </div>

@@ -46,7 +46,7 @@ export const login = (loginDetails) => (dispatch) => {
         dispatch(
           requestFailure(
             LOGIN_FAILURE,
-            `${error.message}: Invalid Email or password`,
+            `${error.message}: Invalid username or password`,
           ),
         );
       });
