@@ -58,9 +58,9 @@ const Login = ({ login, loading, error }) => {
               name="username"
               id="username"
               placeholder="Enter username here"
-              value={loginDetails.email}
+              value={loginDetails.username}
               onChange={handleChange}
-              className={`${formErrors.email && 'is-invalid'} form-control`}
+              className={`${formErrors.username && 'is-invalid'} form-control`}
             />
           </label>
           {formErrors.email && (
@@ -109,7 +109,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  login: (email, password) => dispatch(login(email, password)),
+  login: (username, password) => dispatch(login(username, password)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
