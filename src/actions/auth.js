@@ -41,11 +41,11 @@ export const login = (loginDetails) => (dispatch) => {
           dispatch(userLoginSuccess(response.data.user));
         }
       })
-      .catch((error) => {
+      .catch(() => {
         dispatch(
           requestFailure(
             SET_ERROR,
-            `${error.message}: Error 401. Invalid Username or password`,
+            'Error 401. Invalid Username or password',
           ),
         );
       });
@@ -70,37 +70,6 @@ export const signup = (userParams) => (dispatch) => {
       .catch((error) => {
         dispatch(requestFailure(SET_ERROR, error.message));
       });
-  } catch (error) {
-    dispatch(requestFailure(SET_ERROR, error.message));
-  }
-};
-
-export const checkLoginStatus = () => (dispatch) => {
-  try {
-    dispatch(requestPending(LOGIN_REQUEST));
-    const token = localStorage.getItem('token');
-    if (token) {
-      Axios.get(`${API_URL}/auto_login`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-        .then((response) => {
-          if (response.data.logged_in) {
-            dispatch(userLoginSuccess(response.data.user));
-          }
-          if (!response.data.logged_in) {
-            dispatch(requestFailure(SET_ERROR, response.data.message));
-          }
-        })
-        .catch((error) => {
-          dispatch(requestFailure(SET_ERROR, error.message));
-        });
-    } else {
-      dispatch(
-        requestFailure(SET_ERROR, 'You are not authorized. Please login.'),
-      );
-    }
   } catch (error) {
     dispatch(requestFailure(SET_ERROR, error.message));
   }
