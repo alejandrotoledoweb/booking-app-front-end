@@ -12,7 +12,7 @@ import EngineerList from './containers/EngineerList';
 import Engineer from './components/Engineer';
 import styles from './css/app.module.scss';
 
-const App = ({ formFlag }) => {
+const App = ({ formFlag, toggleForm }) => {
   const loggedInScreen = () => (
     <Switch>
       <Route exact path="/" component={Home} />
@@ -90,6 +90,7 @@ const App = ({ formFlag }) => {
 
 App.propTypes = {
   formFlag: PropTypes.bool.isRequired,
+  toggleForm: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
