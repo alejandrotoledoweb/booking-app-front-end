@@ -1,11 +1,17 @@
 import {
   ADD_APPOINTMENT_FAILURE,
   ADD_APPOINTMENT_SUCCESS,
-  appointmentsInitialState,
   APPOINTMENT_ACTION_REQUEST,
   SET_ERROR,
   FETCH_APPOINTMENTS_SUCCESS,
 } from '../actions/types';
+
+const appointmentsInitialState = {
+  loading: false,
+  appointments: [],
+  error: '',
+  createStatus: false,
+};
 
 const appointmentsReducer = (state = appointmentsInitialState, action) => {
   switch (action.type) {

@@ -1,9 +1,15 @@
 import {
-  engineersInitialState,
   SET_ERROR,
   FETCH_ENGINEERS_PENDING,
   FETCH_ENGINEERS_SUCCESS,
 } from '../actions/types';
+
+const engineersInitialState = {
+  loading: false,
+  engineers: [],
+  engineer: {},
+  error: '',
+};
 
 const engineersReducer = (state = engineersInitialState, action) => {
   switch (action.type) {

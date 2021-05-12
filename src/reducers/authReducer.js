@@ -5,9 +5,16 @@ import {
   LOGGED_IN,
   NOT_LOGGED_IN,
   LOGOUT,
-  authInitialState,
   TOGGLE_FORM,
 } from '../actions/types';
+
+const authInitialState = {
+  loggedIn: 'NOT_LOGGED_IN',
+  user: {},
+  error: '',
+  loading: false,
+  toggleForm: true,
+};
 
 const authReducer = (state = authInitialState, action) => {
   switch (action.type) {

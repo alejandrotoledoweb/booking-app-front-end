@@ -22,32 +22,3 @@ export const APPOINTMENT_ACTION_REQUEST = 'APPOINTMENT_ACTION_REQUEST';
 export const FETCH_APPOINTMENTS_SUCCESS = 'FETCH_APPOINTMENTS_SUCCESS';
 export const ADD_APPOINTMENT_SUCCESS = 'ADD_APPOINTMENT_SUCCESS';
 export const ADD_APPOINTMENT_FAILURE = 'ADD_APPOINTMENT_FAILURE';
-
-export const authInitialState = {
-  loggedIn: 'NOT_LOGGED_IN',
-  user: {},
-  error: '',
-  loading: false,
-  toggleForm: true,
-};
-
-export const engineerInitialState = {
-  loading: false,
-  engineers: [],
-  engineer: {},
-  error: '',
-};
-
-export const engineersInitialState = {
-  loading: false,
-  engineers: [],
-  engineer: {},
-  error: '',
-};
-
-export const appointmentsInitialState = {
-  loading: false,
-  appointments: [],
-  error: '',
-  createStatus: false,
-};
