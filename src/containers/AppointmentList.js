@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { fetchAppointments } from '../actions/appointment';
+import { fetchAppointments } from '../actions';
 import styles from '../css/appointment.module.scss';
 
 function AppointmentList({ fetchAppointments, appointments }) {

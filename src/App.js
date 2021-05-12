@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Navbar from './components/Navbar';
 import Home from './containers/Home';
-import { logout, toggleForm } from './actions/auth';
+import { logout, toggleForm } from './actions';
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
 import AppointmentList from './containers/AppointmentList';

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faSearchPlus } from '@fortawesome/free-solid-svg-icons';
-import { logout, toggleForm } from '../actions/auth';
+import { logout, toggleForm } from '../actions';
 import { NOT_LOGGED_IN } from '../actions/types';
 import styles from '../css/navbar.module.scss';
 

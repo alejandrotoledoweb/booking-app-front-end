@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import fetchEngineers from '../actions/engineers';
+import { fetchEngineers } from '../actions';
 import home from '../css/home.module.scss';
 import Spinner from '../components/Spinner';
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { login } from '../../actions/auth';
+import { login } from '../../actions';
 import styles from '../../css/auth.module.scss';
 import Spinner from '../Spinner';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from '../css/home.module.scss';
-import { logout } from '../actions/auth';
+import { logout } from '../actions';
 
 function Home({ userName, logout }) {
   return (

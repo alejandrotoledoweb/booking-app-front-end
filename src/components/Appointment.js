@@ -6,7 +6,7 @@ import {
   Formik, Form, Field, ErrorMessage,
 } from 'formik';
 import * as Yup from 'yup';
-import { addAppointment } from '../actions/appointment';
+import { addAppointment } from '../actions';
 import styles from '../css/appointment.module.scss';
 import Spinner from './Spinner';
 

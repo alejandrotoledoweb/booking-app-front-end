@@ -6,7 +6,7 @@ import {
   Formik, Form, Field, ErrorMessage,
 } from 'formik';
 import * as Yup from 'yup';
-import { signup } from '../../actions/auth';
+import { signup } from '../../actions';
 import styles from '../../css/auth.module.scss';
 import Spinner from '../Spinner';
 
