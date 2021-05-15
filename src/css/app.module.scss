@@ -1,0 +1,42 @@
+$background-color: #91c788;
+$g-color: #91c788;
+
+.app {
+  text-align: center;
+  transition: margin-left 0.5s;
+}
+
+.mainContent {
+  background-image: url('../background-image.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  opacity: 0.7;
+  background-color: $g-color;
+
+  .mainTitle {
+    font-weight: 900;
+    font-size: 400%;
+  }
+
+  .details {
+    font-size: 20px;
+  }
+
+  .authForm {
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 0 auto;
+    width: 50%;
+    padding: 5px 5px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .mainContent {
+    .authForm {
+      width: 90%;
+      padding: 5px 5px;
+    }
+  }
+}
