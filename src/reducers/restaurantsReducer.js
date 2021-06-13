@@ -1,35 +1,34 @@
 import {
-  FETCH_CURRENT_ENGINEER_REQUEST,
-  FETCH_CURRENT_ENGINEER_SUCCESS,
   SET_ERROR,
+  FETCH_RESTAURANTS_PENDING,
+  FETCH_RESTAURANTS_SUCCESS,
 } from '../actions/types';
 
-const engineerInitialState = {
+const restaurantsInitialState = {
   loading: false,
-  engineers: [],
-  engineer: {},
+  restaurants: [],
   error: '',
 };
 
-const engineerReducer = (state = engineerInitialState, action) => {
+const restaurantsReducer = (state = restaurantsInitialState, action) => {
   switch (action.type) {
-    case FETCH_CURRENT_ENGINEER_REQUEST:
+    case FETCH_RESTAURANTS_PENDING:
       return {
         ...state,
         loading: true,
       };
-    case FETCH_CURRENT_ENGINEER_SUCCESS:
+    case FETCH_RESTAURANTS_SUCCESS:
       return {
         ...state,
         loading: false,
-        engineer: action.payload,
+        restaurants: action.payload,
         error: '',
       };
     case SET_ERROR:
       return {
         ...state,
         loading: false,
-        engineer: {},
+        restaurants: [],
         error: action.payload,
       };
     default:
@@ -37,4 +36,4 @@ const engineerReducer = (state = engineerInitialState, action) => {
   }
 };
 
-export default engineerReducer;
+export default restaurantsReducer;

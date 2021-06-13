@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux';
 import authReducer from './authReducer';
-import engineersReducer from './engineersReducer';
-import engineerReducer from './engineerReducer';
+import restaurantsReducer from './restaurantsReducer';
+import restaurantReducer from './restaurantReducer';
 import appointmentsReducer from './appointmentsReducer';
 
 const rootReducer = combineReducers({
   auth: authReducer,
-  engineers: engineersReducer,
-  engineer: engineerReducer,
+  restaurants: restaurantsReducer,
+  restaurant: restaurantReducer,
   appointments: appointmentsReducer,
 });
 

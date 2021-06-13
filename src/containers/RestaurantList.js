@@ -6,14 +6,14 @@ import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { fetchEngineers } from '../actions';
+import { fetchRestaurants } from '../actions';
 import home from '../css/home.module.scss';
 import Spinner from '../components/Spinner';
 
-const EngineerList = ({ loading, engineers, fetchAllEngineers }) => {
+const RestaurantList = ({ loading, restaurants, fetchAllRestaurants }) => {
   useEffect(() => {
-    fetchAllEngineers();
-  }, [fetchAllEngineers]);
+    fetchAllRestaurants();
+  }, [fetchAllRestaurants]);
 
   const settings = {
     dots: true,
@@ -42,9 +42,9 @@ const EngineerList = ({ loading, engineers, fetchAllEngineers }) => {
       },
     ],
   };
-  const allEngineers = engineers && engineers.length > 0 ? (
+  const allRestaurants = restaurants && restaurants.length > 0 ? (
     <Slider {...settings}>
-      {engineers.map((restaurant) => (
+      {restaurants.map((restaurant) => (
         <article className="text-center px-3 my-3 card d-flex card-style" key={restaurant.id}>
           <img
             src={restaurant.avatar_link}
@@ -84,28 +84,28 @@ const EngineerList = ({ loading, engineers, fetchAllEngineers }) => {
           click the button below each restaurant to see more details
         </small>
       </h4>
-      {allEngineers}
+      {allRestaurants}
     </div>
   );
 };
 
-EngineerList.defaultProps = {
-  fetchAllEngineers: PropTypes.func,
+RestaurantList.defaultProps = {
+  fetchAllRestaurants: PropTypes.func,
 };
 
-EngineerList.propTypes = {
-  fetchAllEngineers: PropTypes.func,
+RestaurantList.propTypes = {
+  fetchAllRestaurants: PropTypes.func,
   loading: PropTypes.bool.isRequired,
-  engineers: PropTypes.arrayOf(Object).isRequired,
+  restaurants: PropTypes.arrayOf(Object).isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  loading: state.engineers.loading,
-  engineers: state.engineers.engineers,
+  loading: state.restaurants.loading,
+  restaurants: state.restaurants.restaurants,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchAllEngineers: () => dispatch(fetchEngineers()),
+  fetchAllRestaurants: () => dispatch(fetchRestaurants()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(EngineerList);
+export default connect(mapStateToProps, mapDispatchToProps)(RestaurantList);

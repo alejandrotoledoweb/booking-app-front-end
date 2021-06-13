@@ -11,7 +11,7 @@ import styles from '../css/appointment.module.scss';
 import Spinner from './Spinner';
 
 const Appointment = ({
-  engineerId, createAppointment, error, loading, createStatus,
+  restaurantId, createAppointment, error, loading, createStatus,
 }) => {
   const initialValues = {
     date: '',
@@ -29,7 +29,7 @@ const Appointment = ({
   const submitForm = (values) => {
     const status = new Date(values.date) < new Date() ? 'Past' : 'Upcoming';
     const data = {
-      restaurant_id: engineerId, date: values.date, duration: values.duration, status,
+      restaurant_id: restaurantId, date: values.date, duration: values.duration, status,
     };
     createAppointment(data);
   };
@@ -120,7 +120,7 @@ Appointment.defaultProps = {
 };
 
 Appointment.propTypes = {
-  engineerId: PropTypes.number.isRequired,
+  restaurantId: PropTypes.number.isRequired,
   createAppointment: PropTypes.func.isRequired,
   user: PropTypes.shape({
     email: PropTypes.string,

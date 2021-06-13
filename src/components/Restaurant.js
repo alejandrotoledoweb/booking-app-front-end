@@ -1,45 +1,45 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { fetchCurrentEngineer } from '../actions';
+import { fetchCurrentRestaurant } from '../actions';
 import Appointment from './Appointment';
 import home from '../css/home.module.scss';
 import Spinner from './Spinner';
 
-const Engineer = ({
-  loading, engineer, fetchCurrentEngineer, match,
+const Restaurant = ({
+  loading, restaurant, fetchCurrentRestaurant, match,
 }) => {
   useEffect(
     () => {
-      fetchCurrentEngineer(match.params.id);
+      fetchCurrentRestaurant(match.params.id);
     },
-    [fetchCurrentEngineer, match.params.id],
+    [fetchCurrentRestaurant, match.params.id],
   );
 
-  const thisEngineer = Object.keys(engineer).length ? (
+  const thisRestaurant = Object.keys(restaurant).length ? (
     <section className="d-md-flex text-center flex-wrap">
       <div className="w-md-50 w-sm-50 justify-content-center mx-auto">
         <img
-          src={engineer.avatar_link}
+          src={restaurant.avatar_link}
           alt="Restaurant Img"
           className="img-fluid rounded w-100"
         />
       </div>
       <aside className="w-md-50 text-center mt-3 mt-md-0 text-md-right">
         <h5 className="font-weight-bold mb-3 text-uppercase">
-          {engineer.name}
+          {restaurant.name}
         </h5>
         <p>
           Food type:
           {' '}
-          {engineer.description}
+          {restaurant.description}
         </p>
         <p>
           Location:
           {' '}
-          {engineer.location}
+          {restaurant.location}
         </p>
-        <Appointment engineerId={engineer.id} />
+        <Appointment restaurantId={restaurant.id} />
       </aside>
     </section>
   ) : (
@@ -59,15 +59,15 @@ const Engineer = ({
       <h4 className="font-weight-bold mb-5 text-uppercase">
         Restaurant Details
       </h4>
-      {thisEngineer}
+      {thisRestaurant}
     </section>
   );
 };
 
-Engineer.propTypes = {
+Restaurant.propTypes = {
   loading: PropTypes.bool.isRequired,
-  fetchCurrentEngineer: PropTypes.func.isRequired,
-  engineer: PropTypes.shape({
+  fetchCurrentRestaurant: PropTypes.func.isRequired,
+  restaurant: PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
     description: PropTypes.string,
@@ -83,12 +83,12 @@ Engineer.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  loading: state.engineers.loading,
-  engineer: state.engineer.engineer,
+  loading: state.restaurants.loading,
+  restaurant: state.restaurant.restaurant,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchCurrentEngineer: (engineerId) => dispatch(fetchCurrentEngineer(engineerId)),
+  fetchCurrentRestaurant: (restaurantId) => dispatch(fetchCurrentRestaurant(restaurantId)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Engineer);
+export default connect(mapStateToProps, mapDispatchToProps)(Restaurant);

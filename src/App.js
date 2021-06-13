@@ -8,8 +8,8 @@ import { logout, toggleForm } from './actions';
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
 import AppointmentList from './containers/AppointmentList';
-import EngineerList from './containers/EngineerList';
-import Engineer from './components/Engineer';
+import RestaurantList from './containers/RestaurantList';
+import Restaurant from './components/Restaurant';
 import styles from './css/app.module.scss';
 
 const App = ({ formFlag, toggleForm }) => {
@@ -21,8 +21,8 @@ const App = ({ formFlag, toggleForm }) => {
         path="/user/:user_id/appointments"
         component={AppointmentList}
       />
-      <Route exact path="/restaurants" component={EngineerList} />
-      <Route exact path="/restaurants/:id" component={Engineer} />
+      <Route exact path="/restaurants" component={RestaurantList} />
+      <Route exact path="/restaurants/:id" component={Restaurant} />
     </Switch>
   );
   const details = () => (

@@ -11,10 +11,10 @@ import {
   LOGOUT,
   LOGOUT_REQUEST,
   TOGGLE_FORM,
-  FETCH_CURRENT_ENGINEER_REQUEST,
-  FETCH_CURRENT_ENGINEER_SUCCESS,
-  FETCH_ENGINEERS_PENDING,
-  FETCH_ENGINEERS_SUCCESS,
+  FETCH_CURRENT_RESTAURANT_REQUEST,
+  FETCH_CURRENT_RESTAURANT_SUCCESS,
+  FETCH_RESTAURANTS_PENDING,
+  FETCH_RESTAURANTS_SUCCESS,
 } from './types';
 
 // Authentication
@@ -105,18 +105,18 @@ export const logout = (id) => (dispatch) => {
 
 // Restaurant
 
-export const fetchCurrentEngineersSuccess = (engineer) => ({
-  type: FETCH_CURRENT_ENGINEER_SUCCESS,
-  payload: engineer,
+export const fetchCurrentRestaurantSuccess = (restaurant) => ({
+  type: FETCH_CURRENT_RESTAURANT_SUCCESS,
+  payload: restaurant,
 });
 
-export const fetchCurrentEngineer = (id) => (dispatch) => {
+export const fetchCurrentRestaurant = (id) => (dispatch) => {
   try {
-    dispatch(requestPending(FETCH_CURRENT_ENGINEER_REQUEST));
+    dispatch(requestPending(FETCH_CURRENT_RESTAURANT_REQUEST));
     Axios.get(`${API_URL}/restaurants/${id}`)
       .then((response) => {
         if (response.status === 200) {
-          dispatch(fetchCurrentEngineersSuccess(response.data));
+          dispatch(fetchCurrentRestaurantSuccess(response.data));
         }
       })
       .catch((error) => {
@@ -129,18 +129,18 @@ export const fetchCurrentEngineer = (id) => (dispatch) => {
 
 // Restaurants
 
-export const fetchEngineersSuccess = (engineers) => ({
-  type: FETCH_ENGINEERS_SUCCESS,
-  payload: engineers,
+export const fetchRestaurantsSuccess = (restaurants) => ({
+  type: FETCH_RESTAURANTS_SUCCESS,
+  payload: restaurants,
 });
 
-export const fetchEngineers = () => (dispatch) => {
+export const fetchRestaurants = () => (dispatch) => {
   try {
-    dispatch(requestPending(FETCH_ENGINEERS_PENDING));
+    dispatch(requestPending(FETCH_RESTAURANTS_PENDING));
     Axios.get(`${API_URL}/restaurants`)
       .then((response) => {
         if (response.status === 200) {
-          dispatch(fetchEngineersSuccess(response.data));
+          dispatch(fetchRestaurantsSuccess(response.data));
         }
       })
       .catch((error) => {
